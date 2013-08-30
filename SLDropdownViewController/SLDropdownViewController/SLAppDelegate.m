@@ -7,6 +7,7 @@
 //
 
 #import "SLAppDelegate.h"
+#import "SLSimpleDropdownViewController.h"
 
 @implementation SLAppDelegate
 
@@ -15,6 +16,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    UIViewController *vc1 = [[UIViewController alloc] init];
+    vc1.view.backgroundColor = [UIColor greenColor];
+    self.window.rootViewController = [[SLSimpleDropdownViewController alloc] init];
     [self.window makeKeyAndVisible];
     return YES;
 }
