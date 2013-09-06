@@ -8,6 +8,8 @@
 
 #import "SLDropdownViewController.h"
 
+#define BOUNCE_OFFSET 20.0f
+
 typedef NS_ENUM(NSInteger, SLDropdownOptionState) {
     DropdownOpen,
     DropdownClosed,
@@ -30,6 +32,7 @@ typedef NS_ENUM(NSInteger, SLDropdownOptionState) {
 
     if (self) {
         self.optionTableView = [[UITableView alloc] init];
+        self.optionTableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.optionTableView.frame), BOUNCE_OFFSET)];
         self.dropdownState = DropdownClosed;
     }
     
@@ -73,6 +76,8 @@ typedef NS_ENUM(NSInteger, SLDropdownOptionState) {
     for (int rowIndex = 0; rowIndex < numOfRows; rowIndex++) {
         dropdownHeight += [self.optionTableView.delegate tableView:self.optionTableView heightForRowAtIndexPath:[NSIndexPath indexPathForRow:rowIndex inSection:0]];
     }
+    
+    // Include the offset for the bounce
     dropdownHeight += CGRectGetHeight(self.optionTableView.tableHeaderView.frame);
     
     if (self.dropdownState == DropdownClosed) {
@@ -82,13 +87,14 @@ typedef NS_ENUM(NSInteger, SLDropdownOptionState) {
         self.dropdownState = DropdownAnimating;
         
         [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-            self.optionTableView.frame = CGRectMake(0, 22, CGRectGetWidth(self.view.frame), dropdownHeight);
+            self.optionTableView.frame = CGRectMake(0, 44 - BOUNCE_OFFSET, CGRectGetWidth(self.view.frame), dropdownHeight);
         } completion:^(BOOL finished) {
             self.dropdownState = DropdownOpen;
         }];
     } else if(self.dropdownState == DropdownOpen) {
         self.dropdownState = DropdownAnimating;
 
+        // Dip down the bounce amount then back up
         [UIView animateWithDuration:0.1 animations:^{
             self.optionTableView.frame = CGRectMake(0, 44, CGRectGetWidth(self.view.frame), dropdownHeight);
         } completion:^(BOOL finished) {
