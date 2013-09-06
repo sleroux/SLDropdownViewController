@@ -20,7 +20,6 @@
 		E9B519A017D14A8800009368 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9B5199E17D14A8800009368 /* InfoPlist.strings */; };
 		E9B519A217D14A8800009368 /* SLDropdownViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B519A117D14A8800009368 /* SLDropdownViewControllerTests.m */; };
 		E9B519AD17D14AE800009368 /* SLDropdownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B519AC17D14AE800009368 /* SLDropdownViewController.m */; };
-		E9B519B017D14D3600009368 /* SLDropdownOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B519AF17D14D3600009368 /* SLDropdownOptionViewController.m */; };
 		E9B519B317D14DBB00009368 /* SLSimpleDropdownOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B519B217D14DBB00009368 /* SLSimpleDropdownOptionCell.m */; };
 		E9B519B517D14DCB00009368 /* SLSimpleDropdownOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9B519B417D14DCB00009368 /* SLSimpleDropdownOptionCell.xib */; };
 		E9E4F39A17D1552B0036F3AD /* SLSimpleDropdownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E4F39917D1552B0036F3AD /* SLSimpleDropdownViewController.m */; };
@@ -55,14 +54,11 @@
 		E9B519A117D14A8800009368 /* SLDropdownViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLDropdownViewControllerTests.m; sourceTree = "<group>"; };
 		E9B519AB17D14AE800009368 /* SLDropdownViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLDropdownViewController.h; sourceTree = "<group>"; };
 		E9B519AC17D14AE800009368 /* SLDropdownViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLDropdownViewController.m; sourceTree = "<group>"; };
-		E9B519AE17D14D3600009368 /* SLDropdownOptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLDropdownOptionViewController.h; sourceTree = "<group>"; };
-		E9B519AF17D14D3600009368 /* SLDropdownOptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLDropdownOptionViewController.m; sourceTree = "<group>"; };
 		E9B519B117D14DBB00009368 /* SLSimpleDropdownOptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSimpleDropdownOptionCell.h; sourceTree = "<group>"; };
 		E9B519B217D14DBB00009368 /* SLSimpleDropdownOptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSimpleDropdownOptionCell.m; sourceTree = "<group>"; };
 		E9B519B417D14DCB00009368 /* SLSimpleDropdownOptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLSimpleDropdownOptionCell.xib; sourceTree = "<group>"; };
 		E9E4F39817D1552B0036F3AD /* SLSimpleDropdownViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSimpleDropdownViewController.h; sourceTree = "<group>"; };
 		E9E4F39917D1552B0036F3AD /* SLSimpleDropdownViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSimpleDropdownViewController.m; sourceTree = "<group>"; };
-		E9E4F39D17D15B300036F3AD /* SLDropdownProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLDropdownProtocols.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,9 +162,6 @@
 			children = (
 				E9B519AB17D14AE800009368 /* SLDropdownViewController.h */,
 				E9B519AC17D14AE800009368 /* SLDropdownViewController.m */,
-				E9B519AE17D14D3600009368 /* SLDropdownOptionViewController.h */,
-				E9B519AF17D14D3600009368 /* SLDropdownOptionViewController.m */,
-				E9E4F39D17D15B300036F3AD /* SLDropdownProtocols.h */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -286,7 +279,6 @@
 				E9B519B317D14DBB00009368 /* SLSimpleDropdownOptionCell.m in Sources */,
 				E9B5198917D14A8800009368 /* main.m in Sources */,
 				E9B519AD17D14AE800009368 /* SLDropdownViewController.m in Sources */,
-				E9B519B017D14D3600009368 /* SLDropdownOptionViewController.m in Sources */,
 				E9B5198D17D14A8800009368 /* SLAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

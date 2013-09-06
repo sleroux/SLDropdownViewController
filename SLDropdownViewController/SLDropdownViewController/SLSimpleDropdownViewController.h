@@ -8,6 +8,6 @@
 
 #import "SLDropdownViewController.h"
 
-@interface SLSimpleDropdownViewController : SLDropdownViewController <SLDropdownViewControllerDataSource>
+@interface SLSimpleDropdownViewController : SLDropdownViewController <SLDropdownViewControllerDataSource, UITableViewDataSource, UITableViewDelegate>
 
 @end

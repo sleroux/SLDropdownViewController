@@ -7,12 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SLDropdownProtocols.h"
 
-@interface SLDropdownViewController : UIViewController <SLDropdownOptionDelegate>
+@protocol SLDropdownViewControllerDataSource <NSObject>
+
+@required
+- (UIViewController *)viewControllerForOptionAtIndexPath:(NSIndexPath *)indexPath;
+@end
+
+@class SLDropdownOptionViewController;
+
+@interface SLDropdownViewController : UIViewController
 
 @property (weak, nonatomic) id<SLDropdownViewControllerDataSource> dataSource;
+@property (strong, nonatomic) UITableView *optionTableView;
 
 - (id)init;
+- (void)didSelectOptionAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
