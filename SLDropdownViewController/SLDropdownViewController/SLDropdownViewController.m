@@ -73,28 +73,33 @@ typedef NS_ENUM(NSInteger, SLDropdownOptionState) {
     for (int rowIndex = 0; rowIndex < numOfRows; rowIndex++) {
         dropdownHeight += [self.optionTableView.delegate tableView:self.optionTableView heightForRowAtIndexPath:[NSIndexPath indexPathForRow:rowIndex inSection:0]];
     }
+    dropdownHeight += CGRectGetHeight(self.optionTableView.tableHeaderView.frame);
     
-    self.optionTableView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), dropdownHeight);
- 
     if (self.dropdownState == DropdownClosed) {
         self.optionTableView.frame = CGRectMake(0, 44 - dropdownHeight, CGRectGetWidth(self.view.frame), dropdownHeight);
         [self.navigationController.view insertSubview:self.optionTableView belowSubview:self.navigationController.navigationBar];
         
         self.dropdownState = DropdownAnimating;
         
-        [UIView animateWithDuration:0.1 animations:^{
-            self.optionTableView.frame = CGRectMake(0, 44, CGRectGetWidth(self.view.frame), dropdownHeight);
+        [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            self.optionTableView.frame = CGRectMake(0, 22, CGRectGetWidth(self.view.frame), dropdownHeight);
         } completion:^(BOOL finished) {
             self.dropdownState = DropdownOpen;
         }];
-        
-        self.dropdownState = DropdownOpen;
     } else if(self.dropdownState == DropdownOpen) {
+        self.dropdownState = DropdownAnimating;
+
         [UIView animateWithDuration:0.1 animations:^{
-            self.optionTableView.frame = CGRectMake(0, 44 - dropdownHeight, CGRectGetWidth(self.view.frame), dropdownHeight);
+            self.optionTableView.frame = CGRectMake(0, 44, CGRectGetWidth(self.view.frame), dropdownHeight);
         } completion:^(BOOL finished) {
-            [self.optionTableView removeFromSuperview];
-            self.dropdownState = DropdownClosed;
+            if (finished) {
+                [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+                    self.optionTableView.frame = CGRectMake(0, 44 - dropdownHeight, CGRectGetWidth(self.view.frame), dropdownHeight);
+                } completion:^(BOOL finished) {
+                    [self.optionTableView removeFromSuperview];
+                    self.dropdownState = DropdownClosed;
+                }];
+            }
         }];
     }
 }

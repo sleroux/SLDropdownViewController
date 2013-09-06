@@ -25,6 +25,9 @@
     self.optionTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self.optionTableView registerNib:[UINib nibWithNibName:@"SLSimpleDropdownOptionCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:SimpleDropdownOptionCellIdentifier];
+    
+    self.optionTableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.optionTableView.frame), 20)];
+    self.optionTableView.tableHeaderView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.5];
 }
 
 # pragma mark - Dropdown Datasource
